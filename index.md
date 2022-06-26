@@ -6,7 +6,7 @@ description: "HyperDbg's research projects and academic papers, manuals, documen
 permalink: /
 ---
 
-# Welcome to HyperDbg Research Center.
+# Welcome to HyperDbg Research.
 {: .fs-9 }
 
 You can find the research papers, manuals, and academic documentation here.
