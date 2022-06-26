@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+---
+layout: default
+title: Home
+nav_order: 1
+description: "HyperDbg's research projects and academic papers, manuals, documents."
+permalink: /
+---
 
-You can use the [editor on GitHub](https://github.com/HyperDbg/research-pages/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# Welcome to HyperDbg Research Center.
+{: .fs-9 }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You can find the research papers, manuals, and academic documentation here.
+{: .fs-6 .fw-300 }
 
-### Markdown
+[Documentations](https://docs.hyperdbg.org){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View resources on GitHub](https://github.com/HyperDbg/awesome){: .btn .fs-5 .mb-4 .mb-md-0 }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+---
 
-```markdown
-Syntax highlighted code block
+## Debugger
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HyperDbg/research-pages/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+HyperDbg is designed with a focus on using modern hardware technologies to provide new features to the debuggers' world. It operates on top of Windows by virtualizing an already running system using Intel VT-x and Intel PT. This debugger aims not to use any APIs and software debugging mechanisms, but instead, it uses Second Layer Page Table (a.k.a. Extended Page Table or EPT) extensively to monitor both kernel and user executions.
