@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Kernel Debugger Design
-nav_order: 2
+parent: Debugger
+nav_order: 1
 ---
 
 # Configuration
