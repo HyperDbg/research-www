@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Kernel Debugger Design
+title: Transparency
+parent: Debugger
 nav_order: 2
 ---
 
