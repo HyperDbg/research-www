@@ -1,5 +1,15 @@
 remote_theme: rayanfam/just-the-docs
 
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: HyperDbg Research
+description: HyperDbg Research Documentation
+baseurl: "/research-pages" # the subpath of your site, e.g. /blog
+url: "https://hyperdbg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
 # Set a path/url to a logo that will be displayed instead of the title
 logo: "/assets/images/hyperdbg.png"
 
