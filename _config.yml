@@ -6,7 +6,6 @@ remote_theme: rayanfam/just-the-docs
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Research
-title: Just the Docs
 description: HyperDbg Research Resources
 baseurl: "/research-pages" # the subpath of your site, e.g. /blog
 url: "https://hyperdbg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
