@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: HyperDbg
 nav_order: 1
 description: "HyperDbg's research projects and academic papers, manuals, documents."
 permalink: /
