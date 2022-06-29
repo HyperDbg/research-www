@@ -2,7 +2,7 @@
 layout: default
 title: Grammar
 parent: Debugger Script
-nav_order: 1
+nav_order: 2
 ---
 
 # Configuration

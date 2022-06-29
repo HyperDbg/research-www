@@ -11,7 +11,7 @@ baseurl: "/research-pages" # the subpath of your site, e.g. /blog
 url: "https://hyperdbg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Set a path/url to a logo that will be displayed instead of the title
-# logo: "/assets/images/hyperdbg.png"
+logo: "/assets/images/hyperdbg.svg"
 
 # Enable or disable the site search
 # Supports true (default) or false
