@@ -5,8 +5,8 @@ remote_theme: rayanfam/just-the-docs
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Research
-description: HyperDbg Research Resources
+title: HyperDbg Research
+description: HyperDbg Research
 baseurl: "/research-pages" # the subpath of your site, e.g. /blog
 url: "https://hyperdbg.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -20,7 +20,7 @@ search_enabled: true
 search:
   # Split pages into sections that can be searched individually
   # Supports 1 - 6, default: 2
-  heading_level: 2
+  heading_level: 3
   # Maximum amount of previews per search result
   # Default: 3
   previews: 3
@@ -39,7 +39,7 @@ search:
   rel_url: true
   # Enable or disable the search button that appears in the bottom right corner of every page
   # Supports true or false (default)
-  button: false
+  button: true
 
 # Aux links for the upper right navigation
 aux_links:
@@ -65,7 +65,7 @@ last_edit_timestamp: true # show or hide edit time - page must have `last_modifi
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
 # Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
+gh_edit_link: false # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub."
 gh_edit_repository: "https://github.com/HyperDbg" # the github URL for your repo
 gh_edit_branch: "main" # the branch that your docs is served from
