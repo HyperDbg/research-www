@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 1st Edition
-parent: Specifications
+title: Specifications
+parent: Debugger Script
 nav_order: 1
 ---
 
