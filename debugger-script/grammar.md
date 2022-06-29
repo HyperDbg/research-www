@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Grammar
-parent: Debugger Script Language
+parent: Debugger Script
 nav_order: 1
 ---
 

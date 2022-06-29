@@ -3,7 +3,7 @@ layout: default
 title: Specifications
 nav_order: 1
 has_children: true
-permalink: /debugger-script/specifications
+permalink: /specifications
 ---
 
 # Debugger
