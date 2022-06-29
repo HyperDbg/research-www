@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 1st Edition
-parent: Language Specifications
+parent: Specifications
 nav_order: 1
 ---
 

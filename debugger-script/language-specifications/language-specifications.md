@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Language Specifications
+title: Specifications
 nav_order: 1
 has_children: true
-permalink: /language-specifications
+permalink: /debugger-script/specifications
 ---
 
 # Debugger
