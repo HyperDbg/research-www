@@ -6,7 +6,7 @@ has_children: true
 permalink: /debugger-script
 ---
 
-# Debugger
+# Debugger Script (DS)
 
 Debugger Script
 {: .fs-6 .fw-300 }

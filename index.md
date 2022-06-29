@@ -18,4 +18,16 @@ You can find the research papers, manuals, and academic documentation here.
 
 ## Debugger
 
-HyperDbg Debugger is a Windows debugger designed with a focus on using modern hardware technologies to provide new features to the debuggers' world. It operates on top of Windows by virtualizing an already running system using Intel VT-x and Intel PT. This debugger aims not to use any APIs and software debugging mechanisms, but instead, it uses Second Layer Page Table (a.k.a. Extended Page Table or EPT) extensively to monitor both kernel and user executions.
+HyperDbg Debugger is a Windows debugger designed with a focus on using modern hardware technologies to provide new features to the debuggers' world. This debugger contains multiple software and hardware modules.
+
+## Debugger Script
+
+Debugger Script is a language designed to be fast, flexible, and to satisfy the debugger's needs to examine the target debuggee and automate the debugging and analyzing tasks.
+
+## Virtual Machine Monitor (VMM)
+
+VMM is a HyperDbg module that operates on top of Windows by virtualizing an already running system using Intel VT-x and Intel PT. This module aims not to use any APIs and software debugging mechanisms; instead, it uses Second Layer Page Table (a.k.a. Extended Page Table or EPT) extensively to monitor both kernel and user executions.
+
+## Clkr Circuit
+
+Clkr (Clocker) Circuit is an HDL module integrated into the HyperDbg Debugger to bring the power of digital circuit debugging to the HyperDbg. (This module is under development and not in a working state yet!)
