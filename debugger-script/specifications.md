@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Specifications
+title: Language Specifications
 parent: Debugger Script
 nav_order: 1
 ---

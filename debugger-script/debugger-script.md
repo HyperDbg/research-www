@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Debugger Script Language
+title: Debugger Script
 nav_order: 3
 has_children: true
 permalink: /debugger-script
@@ -8,5 +8,5 @@ permalink: /debugger-script
 
 # Debugger
 
-Debugger Script Language
+Debugger Script
 {: .fs-6 .fw-300 }
