@@ -9,7 +9,7 @@ permalink: /
 # Welcome to HyperDbg Research.
 {: .fs-9 }
 
-You can find the research papers, manuals, and academic documentation here.
+You can find the research reports, documentation, manuals, and academic papers here.
 {: .fs-6 .fw-300 }
 
 [Documentation](https://docs.hyperdbg.org){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View resources on GitHub](https://github.com/HyperDbg/awesome){: .btn .fs-5 .mb-4 .mb-md-0 }

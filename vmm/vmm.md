@@ -17,7 +17,6 @@ For more information about each element, please visit the following links.
 
 ## Tutorials
 
-Here is the link to these parts:
 
 ### **Part 1 - Basic Concepts & Configure Testing Environment**
 
