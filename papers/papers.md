@@ -2,7 +2,7 @@
 layout: default
 title: Papers
 nav_order: 2
-has_children: true
+has_children: false
 permalink: /papers
 ---
 
