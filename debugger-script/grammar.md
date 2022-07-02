@@ -5,192 +5,273 @@ parent: Debugger Script
 nav_order: 2
 ---
 
-# Configuration
-{: .no_toc }
+# Language Grammar
 
-Just the Docs has some specific configuration parameters that can be defined in your Jekyll site's \_config.yml file.
-{: .fs-6 .fw-300 }
+HyperDbg operates based on the following grammar.
 
-## Table of contents
-{: .no_toc .text-delta }
+```
+# ThreeOpFunc1 inputs are three numbers and returns a number.
+.ThreeOpFunc1->interlocked_compare_exchange
 
-1. TOC
-{:toc}
 
----
+# TwoOpFunc1 inputs are two numbers and returns a number.
+.TwoOpFunc1->ed eb eq interlocked_exchange interlocked_exchange_add
 
-View this site's [\_config.yml](https://github.com/just-the-docs/just-the-docs/tree/main/_config.yml) file as an example.
+# TwoOpFunc2 inputs are two numbers and returns no value 
+.TwoOpFunc2->spinlock_lock_custom_wait 
 
-## Site logo
 
-```yaml
-# Set a path/url to a logo that will be displayed instead of the title
-logo: "/assets/images/just-the-docs.png"
+
+# OneOpFunc1 input is a number and returns a number.
+.OneOpFunc1->poi db dd dw dq neg hi low not check_address strlen wcslen interlocked_exchange_increment interlocked_exchange_decrement 
+
+# OneOpFunc2 input is a number.
+.OneOpFunc2->print formats disable_event enable_event test_statement spinlock_lock spinlock_unlock
+
+.ZeroOpFunc1->pause
+
+.VarArgFunc1->printf 
+
+.OperatorsTwoOperand->or xor and asr asl add sub mul div mod gt lt egt elt equal neq 
+.OperatorsOneOperand->inc dec 
+
+.SemantiRules->start_of_if jmp jz jnz jmp_to_end_and_jzcompleted end_of_if start_of_while end_of_while vargstart mov start_of_do_while  start_of_do_while_commands end_of_do_while start_of_for for_inc_dec start_of_for_ommands end_of_if ignore_lvalue
+
+.Registers->rax eax ax ah al rcx ecx cx ch cl rdx edx dx dh dl rbx ebx bx bh bl rsp esp sp spl rbp ebp bp bpl rsi esi si sil rdi edi di dil r8 r8d r8w r8h r8l r9 r9d r9w r9h r9l r10 r10d r10w r10h r10l r11 r11d r11w r11h r11l r12 r12d r12w r12h r12l r13 r13d r13w r13h r13l r14 r14d r14w r14h r14l r15 r15d r15w r15h r15l ds es fs gs cs ss rflags eflags flags rip eip ip idtr ldtr gdtr tr cr0 cr2 cr3 cr4 cr8 dr0 dr1 dr2 dr3 dr6 dr7
+
+.PseudoRegisters->pid tid proc thread peb teb ip buffer context
+ 
+S->STATEMENT S
+S->eps
+
+STATEMENT->IF_STATEMENT
+STATEMENT->WHILE_STATEMENT
+STATEMENT->DO_WHILE_STATEMENT
+STATEMENT->FOR_STATEMENT
+STATEMENT->ASSIGN_STATEMENT ;
+STATEMENT->CALL_FUNC_STATEMENT ;
+STATEMENT->break @BREAK ;
+STATEMENT->continue @CONTINUE ;
+
+
+
+ASSIGN_STATEMENT->L_VALUE = EXPRESSION @MOV NULL
+CALL_FUNC_STATEMENT->.OneOpFunc2 ( EXPRESSION @.OneOpFunc2 )
+CALL_FUNC_STATEMENT->.VarArgFunc1 ( STRING @VARGSTART VA @.VarArgFunc1 )
+CALL_FUNC_STATEMENT->.ZeroOpFunc1 ( @.ZeroOpFunc1 )
+CALL_FUNC_STATEMENT->.TwoOpFunc2 ( EXPRESSION , EXPRESSION @.TwoOpFunc2 ) 
+CALL_FUNC_STATEMENT->@IGNORE_LVALUE .TwoOpFunc1 ( EXPRESSION , EXPRESSION @.TwoOpFunc1 ) 
+VA->, EXPRESSION VA
+VA->eps
+
+IF_STATEMENT->if @START_OF_IF ( BOOLEAN_EXPRESSION ) @JZ { S } ELSIF_STATEMENT ELSE_STATEMENT @END_OF_IF END_OF_IF
+ELSIF_STATEMENT->elsif @JMP_TO_END_AND_JZCOMPLETED ( BOOLEAN_EXPRESSION ) @JZ { S } ELSIF_STATEMENT
+ELSIF_STATEMENT->@JMP_TO_END_AND_JZCOMPLETED ELSIF_STATEMENT'
+ELSIF_STATEMENT'->eps
+ELSE_STATEMENT->else { S } 
+ELSE_STATEMENT->eps
+END_OF_IF->eps
+
+    
+
+WHILE_STATEMENT->while @START_OF_WHILE ( BOOLEAN_EXPRESSION ) @START_OF_WHILE_COMMANDS { S @END_OF_WHILE } 
+DO_WHILE_STATEMENT->do @START_OF_DO_WHILE { S } while ( BOOLEAN_EXPRESSION ) @END_OF_DO_WHILE ; 
+
+FOR_STATEMENT->for ( SIMPLE_ASSIGNMENT ; @START_OF_FOR BOOLEAN_EXPRESSION ; @FOR_INC_DEC INC_DEC ) { @START_OF_FOR_COMMANDS S @END_OF_FOR }
+SIMPLE_ASSIGNMENT->L_VALUE = EXPRESSION @MOV SIMPLE_ASSIGNMENT'
+SIMPLE_ASSIGNMENT->eps 
+SIMPLE_ASSIGNMENT'->eps
+
+
+INC_DEC->L_VALUE INC_DEC'
+INC_DEC'->++ @INC INC'
+INC_DEC'->-- @DEC DEC'
+INC'->eps 
+DEC'->eps
+INC_DEC'->eps
+
+BOOLEAN_EXPRESSION->eps
+
+
+EXPRESSION->E1 E0'
+E0'->| E1 @OR E0' 
+E0'->eps
+
+
+E1->E2 E1'
+E1'->^ E2 @XOR E1' 
+E1'->eps
+
+E2->E3 E2'
+E2'->& E3 @AND E2' 
+E2'->eps  
+
+E3->E4 E3'
+E3'->>> E4 @ASR E3'
+E3'->eps
+
+E4->E5 E4'
+E4'-><< E5 @ASL E4' 
+E4'->eps
+
+E5->E6 E5'
+E5'->+ E6 @ADD E5'
+E5'->eps
+
+E6->E7 E6'
+E6'->- E7 @SUB E6' 
+E6'->eps
+
+E7->E8 E7'
+E7'->* E8 @MUL E7' 
+E7'->eps
+
+E8->E9 E8'
+E8'->/ E9 @DIV E8'
+E8'->eps 
+
+
+E9->E10 E9' 
+E9'->% E10 @MOD E9'
+E9'->eps 
+
+
+
+
+E10->E12
+
+
+
+E12->.OneOpFunc1 ( EXPRESSION @.OneOpFunc1 ) 
+E12->.TwoOpFunc1 ( EXPRESSION , EXPRESSION @.TwoOpFunc1 ) 
+E12->.ThreeOpFunc1 ( EXPRESSION , EXPRESSION , EXPRESSION @.ThreeOpFunc1 ) 
+
+
+E12->( EXPRESSION )
+
+
+# Types must have '_' at the first 
+E12->@PUSH _register
+E12->@PUSH _id
+
+
+# numbers 
+E12->@PUSH _hex
+E12->@PUSH _decimal
+E12->@PUSH _octal
+E12->@PUSH _binary
+
+
+E12->@PUSH _pseudo_register
+
+E12->- E12 @NEG E13
+E12->+ E12 E13
+E12->~ E12 @NOT E13
+
+E13->eps
+
+
+STRING->@PUSH _string
+L_VALUE->@PUSH _id 
+L_VALUE->@PUSH _register
+NULL->eps
+
 ```
 
-## Search
+# Boolean Expression Grammar
 
-```yaml
-# Enable or disable the site search
-# Supports true (default) or false
-search_enabled: true
+HyperDbg operates based on the following boolean expression grammar.
 
-search:
-  # Split pages into sections that can be searched individually
-  # Supports 1 - 6, default: 2
-  heading_level: 2
-  # Maximum amount of previews per search result
-  # Default: 3
-  previews: 3
-  # Maximum amount of words to display before a matched word in the preview
-  # Default: 5
-  preview_words_before: 5
-  # Maximum amount of words to display after a matched word in the preview
-  # Default: 10
-  preview_words_after: 10
-  # Set the search token separator
-  # Default: /[\s\-/]+/
-  # Example: enable support for hyphenated search words
-  tokenizer_separator: /[\s/]+/
-  # Display the relative url in search results
-  # Supports true (default) or false
-  rel_url: true
-  # Enable or disable the search button that appears in the bottom right corner of every page
-  # Supports true or false (default)
-  button: false
-```
+```text
+# OneOpFunc1 input is a number and returns a number.
+.OneOpFunc1->poi db dd dw dq neg hi low not
 
-## Aux links
+S->BE
 
-```yaml
-# Aux links for the upper right navigation
-aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/just-the-docs/just-the-docs"
+BE->B1
 
-# Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
-```
+B1->B2 B1'
+B1'->&& B2 B1' @AND
+B1'->eps
 
-## Heading anchor links
+B2->B3 B2'
+B2'->|| B3 B2' @OR
+B2'->eps
 
-```yaml
-# Heading anchor links appear on hover over h1-h6 tags in page content
-# allowing users to deep link to a particular heading on a page.
-#
-# Supports true (default) or false
-heading_anchors: true
-```
+B3->CMP
+B3->EXP
 
-## Footer content
+CMP->EXP > EXP @GT
+CMP->EXP < EXP @LT
+CMP->EXP >= EXP @EGT
+CMP->EXP <= EXP @ELT
+CMP->EXP == EXP @EQ
+CMP->EXP != EXP @NEQ
 
-```yaml
-# Footer content
-# appears at the bottom of every page's main content
-# Note: The footer_content option is deprecated and will be removed in a future major release. Please use `_includes/footer_custom.html` for more robust
-markup / liquid-based content.
-footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an <a href=\"https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt\">MIT license.</a>"
+CMP->( CMP )
 
-# Footer last edited timestamp
-last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
-last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+EXP->E1 E0'
+E0'->| E1 E0' @OR
+E0'->eps
 
-# Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
-gh_edit_link_text: "Edit this page on GitHub."
-gh_edit_repository: "https://github.com/just-the-docs/just-the-docs" # the github URL for your repo
-gh_edit_branch: "main" # the branch that your docs is served from
-# gh_edit_source: docs # the source that your files originate from
-gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
-```
+E1->E2 E1'
+E1'->^ E2 E1' @XOR 
+E1'->eps
 
-_note: `footer_content` is deprecated, but still supported. For a better experience we have moved this into an include called `_includes/footer_custom.html` which will allow for robust markup / liquid-based content._
+E2->E3 E2'
+E2'->& E3 E2' @AND 
+E2'->eps  
 
-- the "page last modified" data will only display if a page has a key called `last_modified_date`, formatted in some readable date format
-- `last_edit_time_format` uses Ruby's DateTime formatter; see examples and more information [at this link.](https://apidock.com/ruby/DateTime/strftime)
-- `gh_edit_repository` is the URL of the project's GitHub repository
-- `gh_edit_branch` is the branch that the docs site is served from; defaults to `main`
-- `gh_edit_source` is the source directory that your project files are stored in (should be the same as [site.source](https://jekyllrb.com/docs/configuration/options/))
-- `gh_edit_view_mode` is `"tree"` by default, which brings the user to the github page; switch to `"edit"` to bring the user directly into editing mode
+E3->E4 E3'
+E3'->>> E4 E3' @ASR
+E3'->eps
 
-## Color scheme
+E4->E5 E4'
+E4'-><< E5 E4' @ASL 
+E4'->eps
 
-```yaml
-# Color scheme supports "light" (default) and "dark"
-color_scheme: dark
-```
+E5->E6 E5'
+E5'->+ E6 E5' @ADD
+E5'->eps
 
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+E6->E7 E6'
+E6'->- E7 E6' @SUB
+E6'->eps
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+E7->E8 E7'
+E7'->* E8 E7' @MUL 
+E7'->eps
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-  if (jtd.getTheme() === 'dark') {
-    jtd.setTheme('light');
-    toggleDarkMode.textContent = 'Preview dark color scheme';
-  } else {
-    jtd.setTheme('dark');
-    toggleDarkMode.textContent = 'Return to the light side';
-  }
-});
-</script>
+E8->E9 E8'
+E8'->/ E9 E8' @DIV
+E8'->eps 
 
-## Google Analytics
 
-```yaml
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-ga_tracking: UA-5555555-55
-ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true by default)
-```
+E9->E10 E9' 
+E9'->% E10 E9' @MOD
+E9'->eps 
 
-## Document collections
+E10->E12
 
-By default, the navigation and search include normal [pages](https://jekyllrb.com/docs/pages/).
-Instead, you can also use [Jekyll collections](https://jekyllrb.com/docs/collections/) which group documents semantically together.
+E12->.OneOpFunc1 ( EXP ) @.OneOpFunc1
+E12->( EXP )
 
-For example, put all your documentation files in the `_docs` folder and create the `docs` collection:
 
-```yaml
-# Define Jekyll collections
-collections:
-  # Define a collection named "docs", its documents reside in the "_docs" directory
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
+# Types must have '_' at the first 
+E12->_register @PUSH
+E12->_id @PUSH
 
-just_the_docs:
-  # Define which collections are used in just-the-docs
-  collections:
-    # Reference the "docs" collection
-    docs:
-      # Give the collection a name
-      name: Documentation
-      # Exclude the collection from the navigation
-      # Supports true or false (default)
-      nav_exclude: false
-      # Exclude the collection from the search
-      # Supports true or false (default)
-      search_exclude: false
-```
+# numbers 
+E12->_hex @PUSH
+E12->_decimal @PUSH
+E12->_octal @PUSH
+E12->_binary @PUSH
 
-You can reference multiple collections.
-This creates categories in the navigation with the configured names.
+E12->_pseudo_register @PUSH
 
-```yaml
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-  tutorials:
-    permalink: "/:collection/:path/"
-    output: true
+E12->- E12 @NEG
+E12->+ E12
+E12->~ E12 @NEG
 
-just_the_docs:
-  collections:
-    docs:
-      name: Documentation
-    tutorials:
-      name: Tutorials
+E13->eps
 ```
