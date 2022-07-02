@@ -10,3 +10,5 @@ permalink: /clkr
 
 Clkr Circuit
 {: .fs-6 .fw-300 }
+
+The clkr module is under development and is not yet released!
