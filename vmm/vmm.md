@@ -11,7 +11,7 @@ permalink: /vmm
 Virtual Machine Monitor (VMM)
 {: .fs-6 .fw-300 }
 
-The Virtual Machine Monitor (VMM) module is designed based on [Hypervisor From Scratch](https://rayanfam.com/tutorial) tutorial.
+The Virtual Machine Monitor (VMM) module is designed based on [Hypervisor From Scratch](https://rayanfam.com/tutorials) tutorial.
 
 For more information about each element, please visit the following links.
 
