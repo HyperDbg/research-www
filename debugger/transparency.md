@@ -16,4 +16,4 @@ HyperDbg won't guarantee 100% transparency.However, we're actively working on th
 
 In this short article, we describe the progress in developing the transparency feature of the Hyperdbg. We have developed a statistical-based mitigation for Hyperdbg to be immunized against timing side-channel attacks targeting sub-OS intercepting entities.
 
-[View Document](https://research.hyperdbg.org/assets/documents/vm-exit-ransparency.pdf){: .btn .btn-blue }
+[View Document](https://research.hyperdbg.org/assets/documents/vm-exit-transparency.pdf){: .btn .btn-blue }
