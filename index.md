@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Home
+title: HyperDbg
 nav_order: 1
 description: "HyperDbg's research projects and academic papers, manuals, documents."
 permalink: /
 ---
 
-# Welcome to HyperDbg Research.
+# Welcome to HyperDbg Academic & Research
 {: .fs-9 }
 
 You can find the research reports, documentation, manuals, and academic papers here.
