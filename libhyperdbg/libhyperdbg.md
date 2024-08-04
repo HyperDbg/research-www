@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Standard VMI and Debugging Library (libhyperdbg)
+title: VMI and Debugging Libraries
 nav_order: 6
 has_children: false
 permalink: /libhyperdbg
