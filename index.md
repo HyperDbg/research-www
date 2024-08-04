@@ -34,6 +34,6 @@ VMM is a HyperDbg module that operates on top of Windows by virtualizing an alre
 
 The libhyperdbg provides comprehensive standard Virtual Machine Introspection (VMI) and debugging functionalities, enabling user-mode applications to perform detailed system analysis, monitor virtual machines, and debug software efficiently.
 
-## hwdbg Chip Debugger
+## Chip Debugger (hwdbg)
 
 The hwdbg debugger chip generator is a gate-level debugging tool designed to make configurable and synthesizable hardware debuggers for white-box and black-box chip fuzzing, testing, and reverse engineering. The primary goal of hwdbg is to provide control over hardware, enabling monitoring and modification of signals down to the granular level of a single clock cycle. It is written in Chisel and Verilog.
