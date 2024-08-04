@@ -2,7 +2,7 @@
 layout: default
 title: Reversing with HyperDbg
 parent: Tutorial
-nav_order: 3
+nav_order: 1
 ---
 
 # Reversing with HyperDbg

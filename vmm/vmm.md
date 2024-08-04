@@ -2,7 +2,7 @@
 layout: default
 title: Virtual Machine Monitor (VMM)
 nav_order: 5
-has_children: false
+has_children: true
 permalink: /vmm
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: hwdbg
+title: Chip Debugger (hwdbg)
 nav_order: 7
 has_children: false
 permalink: /hwdbg

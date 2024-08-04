@@ -2,7 +2,7 @@
 layout: default
 title: Hypervisor From Scratch
 parent: Tutorial
-nav_order: 3
+nav_order: 2
 ---
 
 # Hypervisor Internals
