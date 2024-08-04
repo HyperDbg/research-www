@@ -20,5 +20,4 @@ The **hwdbg** debugger chip generator is a gate-level debugging tool designed to
 ## Source code
 
 The source code of hwdbg is available at:
-
 ([https://github.com/HyperDbg/HyperDbg/tree/master/hwdbg](https://github.com/HyperDbg/HyperDbg/tree/master/hwdbg))

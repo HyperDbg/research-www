@@ -2,7 +2,7 @@
 layout: default
 title: Chasing Bugs
 parent: Debugger (kHyperDbg)
-nav_order: 3
+nav_order: 2
 ---
 
 # Chasing Bugs with/in Hypervisors
