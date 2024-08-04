@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Reversing with HyperDbg
-parent: tutorial
+parent: Tutorial
 nav_order: 3
 ---
 

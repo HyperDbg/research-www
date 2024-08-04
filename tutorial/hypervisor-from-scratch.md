@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hypervisor From Scratch
-parent: hypervisor-from-scratch
+parent: Tutorial
 nav_order: 3
 ---
 
