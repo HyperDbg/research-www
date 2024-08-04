@@ -5,7 +5,7 @@ parent: Debugger (kHyperDbg)
 nav_order: 3
 ---
 
-# : Exploring Fresh Reverse Engineering Techniques
+# Exploring Fresh Reverse Engineering Techniques
 {: .no_toc }
 
 This article is about the new features to be introduced in the recent and future versions of HyperDbg, offering insights into their design/challenges and how they can benefit our reverse engineering endeavors by adding new reversing techniques.
