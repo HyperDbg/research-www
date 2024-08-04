@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Debugger
+title: Debugger (kHyperDbg)
 nav_order: 3
 has_children: true
 permalink: /debugger

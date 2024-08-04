@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Chasing Bugs
-parent: Debugger
+parent: Debugger (kHyperDbg)
 nav_order: 3
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Kernel Debugger Design
-parent: Debugger
+parent: Debugger (kHyperDbg)
 nav_order: 1
 ---
 
