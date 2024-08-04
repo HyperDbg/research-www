@@ -6,7 +6,7 @@ description: "HyperDbg's research projects and academic papers, manuals, documen
 permalink: /
 ---
 
-# Welcome to HyperDbg Academic & Research
+# Welcome to HyperDbg Research
 {: .fs-9 }
 
 You can find the research reports, documentation, manuals, and academic papers here.
@@ -15,6 +15,8 @@ You can find the research reports, documentation, manuals, and academic papers h
 [Documentation](https://docs.hyperdbg.org){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View resources on GitHub](https://github.com/HyperDbg/awesome){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
+
+HyperDbg is a comprehensive debugging solution for both software and hardware. HyperDbg offers these following major project:
 
 ## Debugger (kHyperDbg)
 
