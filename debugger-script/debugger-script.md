@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Debugger Script
+title: Debugger Script (dslang)
 nav_order: 4
 has_children: true
-permalink: /debugger-script
+permalink: /dslang
 ---
 
 # Debugger Script (DS)

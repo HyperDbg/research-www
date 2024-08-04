@@ -16,18 +16,22 @@ You can find the research reports, documentation, manuals, and academic papers h
 
 ---
 
-## Debugger
+## Debugger (kHyperDbg)
 
-HyperDbg Debugger is a Windows debugger designed with a focus on using modern hardware technologies to provide new features to the debuggers' world. This debugger contains multiple software and hardware modules.
+HyperDbg Debugger is a Windows user-mode and kernel-mode debugger designed with a focus on using modern hardware technologies to provide new features to the debuggers' world. This debugger contains multiple software and hardware modules.
 
-## Debugger Script
+## Debugger Script (dslang)
 
-Debugger Script is a language designed to be fast, flexible, and to satisfy the debugger's needs to examine the target debuggee and automate the debugging and analyzing tasks.
+Debugger Script or **dslang** is a language designed to be fast, flexible, and to satisfy the debugger's needs to examine the target debuggee and automate the debugging and analyzing tasks.
 
 ## Virtual Machine Monitor (VMM)
 
-VMM is a HyperDbg module that operates on top of Windows by virtualizing an already running system using Intel VT-x and Intel PT. This module aims not to use any APIs and software debugging mechanisms; instead, it uses Second Layer Page Table (a.k.a. Extended Page Table or EPT) extensively to monitor both kernel and user executions.
+VMM is a HyperDbg module that operates on top of Windows by virtualizing an already running system using Intel VT-x and Intel EPT. This module aims not to use any APIs and software debugging mechanisms; instead, it uses the Second Layer Page Table (a.k.a. Extended Page Table or EPT) extensively to monitor both kernel and user executions.
 
-## Clkr Circuit
+## Standard VMI and Debugging Library (libhyperdbg)
 
-Clkr (Clocker) Circuit is an HDL module integrated into the HyperDbg Debugger to bring the power of digital circuit debugging to the HyperDbg. (This module is under development and not in a working state yet!)
+The libhyperdbg provides comprehensive standard Virtual Machine Introspection (VMI) and debugging functionalities, enabling user-mode applications to perform detailed system analysis, monitor virtual machines, and debug software efficiently.
+
+## hwdbg Chip Debugger
+
+The hwdbg debugger chip generator is a gate-level debugging tool designed to make configurable and synthesizable hardware debuggers for white-box and black-box chip fuzzing, testing, and reverse engineering. The primary goal of hwdbg is to provide control over hardware, enabling monitoring and modification of signals down to the granular level of a single clock cycle. It is written in Chisel and Verilog.

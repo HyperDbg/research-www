@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Papers
+title: Academic Papers
 nav_order: 2
 has_children: false
 permalink: /papers
