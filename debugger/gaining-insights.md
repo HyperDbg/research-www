@@ -16,4 +16,4 @@ This article explores the latest advancements and future updates in the HyperDbg
 
 The research highlights how these innovations can transform debugging practices, providing enhanced efficiency and effectiveness for security researchers and reverse engineers.
 
-[View Document](){: .btn .btn-blue }
+[View Document](https://research.hyperdbg.org/assets/documents/gaining-insights.pdf){: .btn .btn-blue }
